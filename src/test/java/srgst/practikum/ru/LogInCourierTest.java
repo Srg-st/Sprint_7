@@ -20,7 +20,7 @@ public class LogInCourierTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = Constant.TESTURL;
+        RestAssured.baseURI = Constant.TEST_URL;
         login = RandomStringUtils.randomAlphanumeric(10);
         password = RandomStringUtils.randomAlphanumeric(10);
         courierStepsLogin = new CourierSteps();

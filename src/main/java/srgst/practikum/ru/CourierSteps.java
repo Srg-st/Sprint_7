@@ -16,7 +16,7 @@ public class CourierSteps {
                         .contentType(ContentType.JSON)
                         .body(courier)
                 .when()
-                .post(Constant.TESTCOURIER);
+                .post(Constant.TEST_COURIER);
 
     }
 
@@ -28,7 +28,7 @@ public class CourierSteps {
                         .contentType(ContentType.JSON)
                         .body(courier)
                 .when()
-                .post(Constant.TESTCOURIERLOGIN);
+                .post(Constant.TEST_COURIER_LOGIN);
     }
 
     @Step("Удаление курьера")
@@ -39,6 +39,6 @@ public class CourierSteps {
                         .contentType(ContentType.JSON)
                         .pathParam("id", courier.getId())
                 .when()
-                .delete(Constant.COURIERDELETE);
+                .delete(Constant.COURIER_DELETE);
     }
 }

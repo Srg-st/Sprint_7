@@ -14,7 +14,7 @@ public class GetListOrderTest {
     @Before
     public void setUp(){
         orderSteps = new OrderSteps();
-        RestAssured.baseURI = Constant.TESTURL;
+        RestAssured.baseURI = Constant.TEST_URL;
     }
 
     @Test

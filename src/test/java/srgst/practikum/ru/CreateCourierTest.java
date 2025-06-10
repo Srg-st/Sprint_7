@@ -22,7 +22,7 @@ public class CreateCourierTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = Constant.TESTURL;
+        RestAssured.baseURI = Constant.TEST_URL;
         courierSteps = new CourierSteps();
         login = RandomStringUtils.randomAlphanumeric(10);
         password = RandomStringUtils.randomAlphanumeric(10);

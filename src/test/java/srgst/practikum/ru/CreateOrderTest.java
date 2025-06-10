@@ -16,29 +16,27 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 @RunWith(Parameterized.class)
 public class CreateOrderTest {
     private String[] color;
-    private String statusCode;
     private Order order;
     private OrderSteps orderSteps;
     private Integer track;
 
-    public CreateOrderTest(String[] color, String statusCode) {
+    public CreateOrderTest(String[] color) {
         this.color = color;
-        this.statusCode = statusCode;
     }
 
     @Parameterized.Parameters
     public static Object[][] createData() {
         return new Object[][]{
-                {new String[]{"BLACK"}, "201"},
-                {new String[]{"GREY"}, "201"},
-                {new String[]{"GREY", "BLACK"}, "201"},
-                {new String[]{}, "201"},
+                {new String[]{"BLACK"}},
+                {new String[]{"GREY"}},
+                {new String[]{"GREY", "BLACK"}},
+                {new String[]{}},
         };
     }
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = Constant.TESTURL;
+        RestAssured.baseURI = Constant.TEST_URL;
         orderSteps = new OrderSteps();
         order = new Order("Naruto", "Uchiha", "Konoha, 142 apt.", "4", "+7 800 355 35 35", 5, "2020-06-06", "Saske, come back to Konoha", null);
     }
@@ -51,7 +49,8 @@ public class CreateOrderTest {
         Response response = orderSteps.createOrder(order);
         response.then()
                 .log()
-                .all().assertThat().statusCode(Integer.parseInt(statusCode))
+                .all().assertThat().statusCode(201)
+                .and()
         .body("track", notNullValue());
         track = response.then().extract().path("track");
 

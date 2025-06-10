@@ -12,11 +12,6 @@ public class Order {
     private String comment;
     private String[] color;
 
-    //Поля для ручки Получение списка заказов
-    private String courierId;
-    private String nearestStation;
-    private String limit;
-    private String page;
 
     public Order(String firstName, String lastName, String address, String metroStation, String phone, Integer rentTime, String deliveryDate, String comment, String[] color) {
         this.firstName = firstName;

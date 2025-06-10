@@ -14,7 +14,7 @@ public class OrderSteps {
                 .header("Content-type", "application/json")
                         .body(order)
                         .when()
-                .post(Constant.TESTORDERS);
+                .post(Constant.TEST_ORDERS);
 
     }
 
@@ -26,7 +26,7 @@ public class OrderSteps {
                         .header("Content-type", "application/json")
                         .queryParam("track", trackId)
                         .when()
-                        .put(Constant.ORDERCANCEL);
+                        .put(Constant.ORDER_CANCEL);
 
     }
 
@@ -37,7 +37,7 @@ public class OrderSteps {
                         .log().all()
                         .header("Content-type", "application/json")
                         .when()
-                        .get(Constant.TESTORDERS);
+                        .get(Constant.TEST_ORDERS);
 
     }
 
